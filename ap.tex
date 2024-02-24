@@ -2,6 +2,9 @@
 \let\negthickspace\undefined
 \documentclass[journal,12pt,twocolumn]{IEEEtran}
 
+
+
+
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{algorithmic}
@@ -88,6 +91,7 @@
 \newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
 \renewcommand{\abstractname}{Question}
 
+
 \let\vec\mathbf
 
 \vspace{3cm}
@@ -100,7 +104,8 @@
 
 \newcommand \tab [1][1cm]{\hspace*{#1}}
 %\newcommand{\Var}{$\sigma ^2$}
-
+\usepackage{amssymb}
+\usepackage{amsmath}
 \title{
 	
 	\title{NCERT Maths 11.9.2 Q9}
@@ -116,17 +121,12 @@
 The sum of the first $n$ terms of two arithmetic progressions (AP) is in the ratio $5n+4 : 9n+6$. Find the ratio of their 18th terms.
 
 solution:
-
-
-
 \begin{table}[h!]
     \centering
-    \input{tables/ ap tables.tex}
+    \input{table/t.tex}
     \caption{Input Parameters}
     \label{table:parameters}
 \end{table}
-
-
 
 \begin{align}
 x_1(n)=(x_1(0)+nd_1)u(n)
@@ -137,77 +137,39 @@ x_2(n)=(x_2(0)+nd_2)u(n)
 \label{eq:2}
 \end{align}
 Applying Z transform:
+Taking Z-Transform:
+\begin{enumerate}
+    \item $\mathcal{Z}\{u(n)\}$
 \begin{align}
-    x_1(z) &=\frac{x_1(0)}{1-z^{-1}} + \frac{d_1z^{-1}}{(1-z^{-1})^2}\\
-     x_2(z)&= \frac{x_2(0)}{1-z^{-1}} + \frac{d_2z^{-1}}{(1-z^{-1})^2}
+    u(n) \system{Z} \frac{1}{1-z^{-1}} \{\abs{z} > 1\} \label{eq 10.5.2.11_7}
 \end{align}
-Region of Convergence or R.O.C :
+    \item $\mathcal{Z}\{nu(n)\}$ 
 \begin{align}
-     \abs{z}>1
-\end{align}
-For AP, the sum of first n+1 terms can be written as :
-\begin{align}
-	 y(n)&=x(n)*u(n)
-\end{align}  
-Applying Z transform on both sides
-\begin{align}
- x_1(z) &=\frac{x_1(0)}{(1-z^{-1})^2} + \frac{d_1z^{-1}}{(1-z^{-1})^3}\\
-x_2(z)&= \frac{x_2(0)}{(1-z^{-1})^2} + \frac{d_2z^{-1}}{(1-z^{-1})^3}
-\end{align}
- 
-
-Using contour integration to find inverse Z transform:
-\begin{align}
-	y_1(n) &= \frac{1}{2\pi j} \oint_C Y(z) z^{n-1} dz\\
-	&= \frac{1}{2\pi j} \oint_C \left[ \frac{x_1(0)}{(1-z^{-1})^2} - \frac{d_1z^{-1}}{(1-z^{-1})^3} \right]z^{n-1} \, dz
- \end{align}
- \begin{align}
- y_2(n) &= \frac{1}{2\pi j} \oint_C Y(z) z^{n-1} dz\\
-	&= \frac{1}{2\pi j} \oint_C \left[ \frac{x_2(0)}{(1-z^{-1})^2} - \frac{d_2z^{-1}}{(1-z^{-1})^3} \right]z^{n-1} \, dz
- \end{align}
- The sum of the terms of the sequence is computed using the residue theorem, expressed as $R_i$, which represents the residue of the Z-transform at $ z=1 $ for the expression $ Y(z) $.
-\begin{align}
-	R_i=R_1 + R_2
-\end{align}
- $R_1$ and $R_2$ are residues calculated at the poles of the Z-transform.
-\begin{align}
-for  y_1(n)
-\vspace{1cm}
-R_1 &= \frac{1}{{(2-1)!}} \left. \frac{d (x_1(0)z^{n+1})}{dz} \right|_{z=1} \
+    nu(n) \system{Z} \frac{z^{-1}}{(1-z^{-1})^2}\, \{\abs{z} > 1\} \label{eq 10.5.2.11_8} 
 \end{align}
 \begin{align}
-R_2&=\frac{1}{{(3-1)!}} \left. \frac{d^2(d_1z^{n+1})}{dz^2} \right|_{z=1} 
+    x_1(z) &=\frac{9/2}{1-z^{-1}} + \frac{ 5z^{-1}}{(1-z^{-1})^2}\\
+     x_2(z)&= \frac{15/2}{1-z^{-1}} + \frac{9z^{-1}}{(1-z^{-1})^2}
 \end{align}
-The sum of terms is given by $R_i$:
- \begin{align}
-y_1(n)=x_1(0)(n+1)	+ \frac{d_1}{2} n(n+1) 
- \end{align}
+\end{enumerate}
 \begin{align}
-for y_2(n)
-R_1& = \frac{1}{{(2-1)!}} \left. \frac{d (x_2(0)z^{n+1})}{dz} \right|_{z=1} \
+x_1(n)&= \lbrace 9/2,19/2,29/2,...\rbrace 
 \end{align}
 \begin{align}
-R_2&=\frac{1}{{(3-1)!}} \left. \frac{d^2(d_2z^{n+1})}{dz^2} \right|_{z=1} 
+x_2(n)&= \lbrace 15/2,33/2,51/2,...\rbrace 
 \end{align}
-
-The sum of terms is given by $R_i$:
 \begin{align}
- y_2(n)=x_2(0)(n+1)	+ \frac{d_2}{2} n(n+1) 
- \end{align}
-
-taking ratio of $y_1(n)$:$y_2(n)$ and equating to $5(n+1)+4$:$9(n+1)+6$\\
-\begin{align}
-\frac{y_1(n)}{y_2(n)}&=\frac{x_1(0)(n+1)+ \frac{d_1}{2} n(n+1)}{x_2(0)(n+1)+ \frac{d_2}{2} n(n+1)}\\
-&=\frac{x_1(0)+\frac{d_1}{2}{n}}{x_2(0)+\frac{d_2}{2}{n}}
+\frac{x_1(18)}{x_2(18)}=\frac{179}{321}
 \end{align}
-we need ratio of 18th  terms $\frac{n}{2}$ is 17 and n=34 
-substitute it in $5(n+1)+4$:$9(n+1)+6$ then we get ratio as $\frac{179}{321}
-$
-
-
-	
-
- 
-
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\columnwidth]{figs/stem_plot1.pdf}
+	\label{fig:plot}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\columnwidth]{figs/stem_plot2.pdf}
+	\label{fig:plot}
+\end{figure}
 \end{document}
 
