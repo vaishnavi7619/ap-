@@ -123,8 +123,7 @@ The sum of the first $n$ terms of two arithmetic progressions (AP) is in the rat
 \solution:
 
 \begin{table}[htbp]
-    \centering
-    \caption{Input Parameters}
+	\centering
     \begin{tabular}{|c|c|c|}
     \hline
     \textbf{Parameter} &\textbf{value}& \textbf{Description} \\
@@ -166,19 +165,18 @@ Taking Z-Transform:
     nu(n) &\xleftrightarrow{\mathcal{Z}}  \frac{z^{-1}}{(1-z^{-1})^2}\, \{\abs{z} > 1\} \label{eq 10.5.2.11_8} 
 \end{align}
 \begin{align}
-    X_1(z) &=\frac{9}{1-z^{-1}} + \frac{ 5z^{-1}}{(1-z^{-1})^2}\\
-     X_2(z)&= \frac{15}{1-z^{-1}} + \frac{9z^{-1}}{(1-z^{-1})^2}
+    x_1(z) &=\frac{9/2}{1-z^{-1}} + \frac{ 5z^{-1}}{(1-z^{-1})^2}\\
+     x_2(z)&= \frac{15/2}{1-z^{-1}} + \frac{9z^{-1}}{(1-z^{-1})^2}
 \end{align}
 \end{enumerate}
 \begin{align}
-x_1(n)&= \lbrace 9,14,19,...\rbrace 
+x_1(n)&= \lbrace 9/2,19/2,29/2,...\rbrace 
 \end{align}
 \begin{align}
-x_2(n)&= \lbrace 15,24,33 ,...\rbrace 
+x_2(n)&= \lbrace 15/2,33/2,51/2,...\rbrace 
 \end{align}
 \begin{align}
-\frac{x_1(18)}{x_2(18)}&=\frac{94}{168}\\
-&=\frac{47}{84}
+\frac{x_1(18)}{x_2(18)}=\frac{179}{321}
 \end{align}
 \begin{figure}[h!]
 	\centering

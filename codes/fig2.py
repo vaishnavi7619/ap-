@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-a = 15  # First term
+a = 7.5  # First term
 d = 9 # Common difference
 n = 25
 ap_series = [a + i * d for i in range(n)]
