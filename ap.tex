@@ -128,17 +128,15 @@ The sum of the first $n$ terms of two arithmetic progressions (AP) is in the rat
     \hline
     \textbf{Parameter} &\textbf{value}& \textbf{Description} \\
     \hline
-    \( x_1(0) \) & 9L& First term of the first arithmetic progression (AP). \\
+    \( x_1(0) \) & $\frac{9}{2}$& First term of the first arithmetic progression (AP). \\
     \hline
-    \( x_2(0) \) & 15L& First term of the second arithmetic progression (AP).  \\
+    \( x_2(0) \) &$\frac{15}{2}$& First term of the second arithmetic progression (AP).  \\
     \hline
-    \( d_1 \) & 5L &Common difference of the first AP. \\
+    \( d_1 \) & 5 &Common difference of the first AP. \\
     \hline
-    \( d_2 \) & 9L&Common difference of the second AP. \\
+    \( d_2 \) & 9&Common difference of the second AP. \\
     \hline
     \( n \) & - &Index of the term in the sequences. \\
-    \hline
-    \( L\) & - &common multiple of  arithmetic progression (AP).\\
     \hline
     \end{tabular}
     \label{tab:parameters}
@@ -163,6 +161,21 @@ Taking Z-Transform:
     \item $\mathcal{Z}\{nu(n)\}$ 
 \begin{align}
     nu(n) &\xleftrightarrow{\mathcal{Z}}  \frac{z^{-1}}{(1-z^{-1})^2}\, \{\abs{z} > 1\} \label{eq 10.5.2.11_8} 
+\end{align}
+\begin{align}
+\frac{\frac{n}{2}\left[ 2x_1(0) +(n-1)d_1 \right]}{\frac{n}{2}\left[ 2x_2(0) +(n-1)d_2 \right]}&= \frac{5n+4}{9n+6}\\
+\frac{2x_1(0) +nd_1-d_1}{2x_2(0) +nd_2-d_2 }&= \frac{5n+4}{9n+6}
+\end{align}
+\centering
+On comparing we get,
+$d_1 = 5 $ and $d_2 = 9 $\\
+\begin{align}
+2x_1(0) - d_1 &= 4\\
+x_1 &=\frac{9}{2}
+\end{align}
+\begin{align}
+2x_2(0)- d_2&=6\\
+x_2(0) &=\frac{15}{2}
 \end{align}
 \begin{align}
     x_1(z) &=\frac{9/2}{1-z^{-1}} + \frac{ 5z^{-1}}{(1-z^{-1})^2}\\
